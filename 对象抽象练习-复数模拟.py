@@ -1,4 +1,5 @@
-from math import atan2, sqrt
+from math import atan2, sqrt, cos, sin, pi
+
 class Number():
     def __add__(self,other):
         return self.add(other)
@@ -14,8 +15,8 @@ class Complex(Number):
         return ComplexRI(self.real + other.real, self.imag + other.imag)
     
     def mul(self, other):
-        magnitude = self.magnitude() * other.magnitude()
-        return ComplexMA(magnitude, self.angle() + other.angle())
+        magnitude = self.magnitude * other.magnitude
+        return ComplexMA(magnitude, self.angle + other.angle)
     
 class ComplexRI(Complex):
     def __init__(self, real, imag):
@@ -33,7 +34,7 @@ class ComplexRI(Complex):
     def __repr__(self):
         return f"ComplexRI({self.real}, {self.imag})"
     
-def ComplexMA(Complex): 
+class ComplexMA(Complex): 
     def __init__(self, magnitude, angle):
         self.magnitude = magnitude
         self.angle = angle
@@ -48,3 +49,5 @@ def ComplexMA(Complex):
     
     def __repr__(self):
         return f"ComplexMA({self.magnitude}, {self.angle})"
+    
+
